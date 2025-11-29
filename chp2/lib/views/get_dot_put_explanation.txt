@@ -1,0 +1,49 @@
+  // ✔️ 1. Creates an instance of ProductController
+
+  //   ✔️ 2. Registers (stores) it in GetX’s dependency system
+  // GetX keeps this controller in memory so you can access it from anywhere without passing it through constructors.
+
+  //   📌 In short:
+  // It creates, saves, and returns a single instance of your controller
+  // so the whole app can share it easily.
+
+  //   ✅ What does “without passing it through constructors” mean?
+  // Normally in Flutter (without GetX), if one widget needs a controller or some data, you must pass it down manually through widget constructors.
+
+  // 👉 Example without GetX
+  //   class HomePage extends StatelessWidget {
+  //   final ProductController controller;
+
+  //   HomePage({required this.controller});
+  // }
+
+  // And when you create the page, you must pass the controller:
+  //   final productController = ProductController();
+  // HomePage(controller: productController);
+
+  // If many widgets need the same controller, you have to keep passing it:
+  // Main → Home → ProductList → ProductTile → etc.
+
+  //   ✅ How GetX avoids this
+  // When you write:
+  // Get.put(ProductController());
+
+  //   GetX stores the controller globally.
+  // Now, any widget can get the same controller by simply doing:
+  // final controller = Get.find<ProductController>();
+
+  // No need to pass the controller like this:
+  // Home(controller: controller)
+
+  // 📌 Mini Example
+  // Before (without GetX):
+
+  //   class ProductPage extends StatelessWidget {
+  //   final ProductController controller;
+  //   ProductPage({required this.controller});
+  // }
+
+  // After (with GetX):
+  //   class ProductPage extends StatelessWidget {
+  //   final controller = Get.find<ProductController>();
+  // }
