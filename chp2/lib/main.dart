@@ -93,9 +93,90 @@
 
 // ------------------------------------------------------------
 
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(home: Scaffold(body: ProductPage()));
+//   }
+// }
+
+// class ProductPage extends StatefulWidget {
+//   const ProductPage({super.key});
+
+//   @override
+//   State<ProductPage> createState() => _ProductPageState();
+// }
+
+// class _ProductPageState extends State<ProductPage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: MyTextField(
+//         ontap: (value) {
+//           print(value);
+//           return value;
+//         },
+//       ),
+//     );
+//   }
+// }
+
+// class MyTextField extends StatefulWidget {
+//   final Function(String) ontap;
+//   const MyTextField({super.key, required this.ontap});
+
+//   @override
+//   State<MyTextField> createState() => _MyTextFieldState();
+// }
+
+// class _MyTextFieldState extends State<MyTextField> {
+//   final TextEditingController controller = TextEditingController();
+//   @override
+//   Widget build(BuildContext context) {
+//     // TextFormField’s onChanged property expects a function with this signature:
+//     return TextFormField(onChanged: widget.ontap);
+
+//     // void Function(String value)
+//     // Your widget.ontap also has the same signature:
+//     // final Function(String) ontap;
+//     // So when you pass it directly:
+//     // onChanged: widget.ontap
+//     // …it works because the signatures match exactly. Flutter will call ontap(value) internally whenever the text changes, passing the value automatically.
+
+//     // onChanged: widget.ontap
+//     // Is exactly equivalent to:
+//     // onChanged: (value) {
+//     //   widget.ontap(value);
+//     // }
+
+//     // The (value) { ... } wrapper is implicit here. That’s why it works without you explicitly calling widget.ontap(value) inside a lambda.
+//   }
+// }
+
+// get x
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:getx_state_management/controller/cart_controller.dart';
+import 'package:getx_state_management/routes/page_routes.dart';
+import 'package:getx_state_management/routes/routes.dart';
+import 'package:getx_state_management/views/product_page.dart';
 
 void main() {
+  Get.put(CartController()); // CartController instance
   runApp(MyApp());
 }
 
@@ -109,59 +190,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(body: ProductPage()));
-  }
-}
-
-class ProductPage extends StatefulWidget {
-  const ProductPage({super.key});
-
-  @override
-  State<ProductPage> createState() => _ProductPageState();
-}
-
-class _ProductPageState extends State<ProductPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: MyTextField(
-        ontap: (value) {
-          print(value);
-          return value;
-        },
-      ),
+    return GetMaterialApp(
+      initialRoute: Routes.productPage,
+      getPages: PageRoutes.routes,
+      home: Scaffold(body: ProductPage()),
     );
-  }
-}
-
-class MyTextField extends StatefulWidget {
-  final Function(String) ontap;
-  const MyTextField({super.key, required this.ontap});
-
-  @override
-  State<MyTextField> createState() => _MyTextFieldState();
-}
-
-class _MyTextFieldState extends State<MyTextField> {
-  final TextEditingController controller = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    // TextFormField’s onChanged property expects a function with this signature:
-    return TextFormField(onChanged: widget.ontap);
-
-    // void Function(String value)
-    // Your widget.ontap also has the same signature:
-    // final Function(String) ontap;
-    // So when you pass it directly:
-    // onChanged: widget.ontap
-    // …it works because the signatures match exactly. Flutter will call ontap(value) internally whenever the text changes, passing the value automatically.
-
-    // onChanged: widget.ontap
-    // Is exactly equivalent to:
-    // onChanged: (value) {
-    //   widget.ontap(value);
-    // }
-
-    // The (value) { ... } wrapper is implicit here. That’s why it works without you explicitly calling widget.ontap(value) inside a lambda.
   }
 }

@@ -1,20 +1,28 @@
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:getx_state_management/routes/routes.dart';
-import 'package:getx_state_management/views/product_view.dart';
-import 'package:getx_state_management/views/second_page.dart';
+import 'package:getx_state_management/views/cart_page.dart';
+import 'package:getx_state_management/views/product_details_page.dart';
+import 'package:getx_state_management/views/product_page.dart';
 
 class PageRoutes {
   static final routes = [
     GetPage(
-      name: Routes.product,
+      name: Routes.productPage,
       page: () {
-        return ProductView();
+        return ProductPage();
       },
     ),
     GetPage(
       name: Routes.productDetails,
       page: () {
-        return SecondPage();
+        return ProductDetailsPage();
+      },
+    ),
+
+    GetPage(
+      name: Routes.cartPage,
+      page: () {
+        return CartPage();
       },
     ),
   ];

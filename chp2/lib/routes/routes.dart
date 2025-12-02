@@ -1,4 +1,5 @@
 class Routes {
-  static const product = '/products';
+  static const productPage = '/product-page';
   static const productDetails = '/product-details';
+  static const cartPage = '/cart-page';
 }
