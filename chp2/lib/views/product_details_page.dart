@@ -9,10 +9,10 @@ class ProductDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get the product passed via arguments
-    ProductModel _productModel = Get.arguments;
+    ProductModel productModel = Get.arguments;
 
     // Use the singleton CartController
-    CartController _cartController = Get.find<CartController>();
+    CartController cartController = Get.find<CartController>();
 
     return Scaffold(
       appBar: AppBar(
@@ -41,20 +41,20 @@ class ProductDetailsPage extends StatelessWidget {
               'Product Name',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
-            Text(_productModel.name),
+            Text(productModel.name),
             SizedBox(height: 20),
             Text(
               'Price',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
-            Text(_productModel.price.toString()),
+            Text(productModel.price.toString()),
             SizedBox(height: 20),
             IconButton(
               onPressed: () {
-                _cartController.addToCart(_productModel);
+                cartController.addToCart(productModel);
                 Get.snackbar(
                   'Cart Added',
-                  '${_productModel.name} added to cart successfully',
+                  '${productModel.name} added to cart successfully',
                   snackPosition: SnackPosition.BOTTOM,
                 );
               },
