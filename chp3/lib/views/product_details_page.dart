@@ -21,7 +21,8 @@ class ProductDetailsPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Get.toNamed('/cart-page');
+              Get.offNamed('/cart-page');
+              // Get.toNamed('/cart-page');
             },
             icon: Icon(Icons.shopping_cart, color: Colors.white),
           ),

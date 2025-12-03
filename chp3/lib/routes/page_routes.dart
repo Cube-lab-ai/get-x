@@ -1,6 +1,7 @@
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:getx_state_management/routes/routes.dart';
 import 'package:getx_state_management/views/cart_page.dart';
+import 'package:getx_state_management/views/check_out_page.dart';
 import 'package:getx_state_management/views/product_details_page.dart';
 import 'package:getx_state_management/views/product_page.dart';
 
@@ -23,6 +24,13 @@ class PageRoutes {
       name: Routes.cartPage,
       page: () {
         return CartPage();
+      },
+    ),
+
+    GetPage(
+      name: Routes.checkOutPage,
+      page: () {
+        return CheckOutPage();
       },
     ),
   ];

@@ -34,7 +34,7 @@ class ProductPage extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 // Get.toNamed('/product-details', arguments: product);
-                Get.toNamed('/product-details', arguments: product);
+                Get.offNamed('/product-details', arguments: product);
               },
               child: ListTile(
                 title: Text(product.name),

@@ -36,6 +36,13 @@ class CartPage extends StatelessWidget {
                 },
               ),
             ),
+
+            ElevatedButton(
+              onPressed: () {
+                Get.offNamed('/checkout-page');
+              },
+              child: Text("Proceed to Checkout"),
+            ),
           ],
         );
       }),
