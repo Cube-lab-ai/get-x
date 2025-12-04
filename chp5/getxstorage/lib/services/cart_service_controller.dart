@@ -12,18 +12,16 @@ class CartServiceController extends GetxService {
     print('printing');
     // Load from storage on start
     List<dynamic>? storedCart = storage.read('cart-items');
-    if (storedCart != null) {
-      for (var item in storedCart) {
-        print('Item: $item');
-      }
-      cartItems.assignAll(
-        storedCart.map<ProductModel>((e) => ProductModel.fromMap(e)).toList(),
-      );
-      for (var p in cartItems) {
-        print('CartItem object: name=${p.name}, price=${p.price}');
-      }
+    for (var item in storedCart) {
+      print('Item: $item');
     }
-
+    cartItems.assignAll(
+      storedCart.map<ProductModel>((e) => ProductModel.fromMap(e)).toList(),
+    );
+    for (var p in cartItems) {
+      print('CartItem object: name=${p.name}, price=${p.price}');
+    }
+  
     ever(cartItems, (_) {
       storage.write(
         'cart-items',
