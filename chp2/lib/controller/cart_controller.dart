@@ -49,3 +49,21 @@ class CartController extends GetxController {
 // List<int> nums = [1, 2, 3, 4];
 // int sum = nums.fold(0, (previous, element) => previous + element);
 // print(sum); // 10
+
+
+// fold function implementation
+// before understand the implementation understand how ananymous function works in order to understand fold
+
+// E myFold<E, T>(List<T> list, E initialValue, E Function(E, T) combine) {
+//   var accumulator = initialValue;
+
+//   for (var element in list) {
+//     accumulator = combine(accumulator, element);
+//   }
+
+//   return accumulator;
+// }
+
+
+// var result = myFold([1, 2, 3], 0, (acc, x) => acc + x);
+// print(result)
