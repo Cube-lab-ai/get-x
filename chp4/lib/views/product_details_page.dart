@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_state_management/controller/cart_controller.dart';
 import 'package:getx_state_management/models/product_model.dart';
+import 'package:getx_state_management/views/product_page.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({super.key});
@@ -29,6 +30,15 @@ class ProductDetailsPage extends StatelessWidget {
         ],
         leading: IconButton(
           onPressed: () {
+            // Your CartController is scoped to ProductDetailsPage, so when you go back, GetX disposes it.
+
+            // 👉 This means:
+            // CartController is created when ProductDetailsPage opens
+            // It is owned by that route
+            // When you leave ProductDetailsPage (Navigator.pop / back button)
+            // GetX auto-disposes all controllers created by that route
+            // That is GetX SmartManagement working correctly, not a bug.
+
             Navigator.pop(context);
           },
           icon: Icon(Icons.arrow_back_ios, color: Colors.white),

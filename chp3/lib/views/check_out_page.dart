@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 
 class CheckOutPage extends StatefulWidget {
   const CheckOutPage({super.key});

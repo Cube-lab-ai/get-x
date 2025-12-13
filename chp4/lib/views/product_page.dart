@@ -7,7 +7,7 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductController controller = Get.put(ProductController());
+    ProductController controller = Get.find<ProductController>();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -33,8 +33,9 @@ class ProductPage extends StatelessWidget {
             final product = controller.product[index];
             return GestureDetector(
               onTap: () {
-                // Get.toNamed('/product-details', arguments: product);
-                Get.offNamed('/product-details', arguments: product);
+                Get.toNamed('/product-details', arguments: product);
+
+                // Get.offNamed('/product-details', arguments: product);
               },
               child: ListTile(
                 title: Text(product.name),

@@ -2,6 +2,15 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:getxstorage/models/product_model.dart';
 
+// If you add 3 items sequentially:
+
+// Add item A → ever triggers → writes [A].
+
+// Add item B → ever triggers → writes [A, B].
+
+// Add item C → ever triggers → writes [A, B, C].
+
+// This is expected behavior.
 class CartServiceController extends GetxService {
   final storage = GetStorage();
 
@@ -21,7 +30,7 @@ class CartServiceController extends GetxService {
     for (var p in cartItems) {
       print('CartItem object: name=${p.name}, price=${p.price}');
     }
-  
+
     ever(cartItems, (_) {
       storage.write(
         'cart-items',

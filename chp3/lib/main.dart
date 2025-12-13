@@ -56,7 +56,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:getx_state_management/controller/cart_controller.dart';
 import 'package:getx_state_management/routes/page_routes.dart';
 import 'package:getx_state_management/routes/routes.dart';
